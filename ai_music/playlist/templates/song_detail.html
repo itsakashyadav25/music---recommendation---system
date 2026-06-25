@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ song.title }}</title>
+
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:Arial,sans-serif;
+        }
+
+        body{
+            background:#121212;
+            color:white;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            min-height:100vh;
+        }
+
+        .player{
+            width:500px;
+            background:#1e1e1e;
+            border-radius:20px;
+            padding:25px;
+            text-align:center;
+            box-shadow:0 0 25px rgba(29,185,84,0.4);
+        }
+
+        .player img{
+            width:250px;
+            height:250px;
+            border-radius:50%;
+            object-fit:cover;
+            animation: spin 8s linear infinite;
+        }
+
+        @keyframes spin{
+            from{
+                transform:rotate(0deg);
+            }
+            to{
+                transform:rotate(360deg);
+            }
+        }
+
+        h1{
+            color:#1DB954;
+            margin-top:15px;
+        }
+
+        h3{
+            margin-top:10px;
+        }
+
+        p{
+            margin-top:10px;
+        }
+
+        audio{
+            width:100%;
+            margin-top:20px;
+            border-radius:30px;
+        }
+
+        .back{
+            display:inline-block;
+            margin-top:20px;
+            padding:10px 20px;
+            background:#1DB954;
+            color:white;
+            text-decoration:none;
+            border-radius:10px;
+            font-weight:bold;
+        }
+
+        .back:hover{
+            background:#18a74a;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="player">
+
+        <img src="{{ song.image.url }}" alt="Song">
+
+        <h1>{{ song.title }}</h1>
+
+        <h3>🎤 Artist : {{ song.artist }}</h3>
+
+        <h3>🎬 Movie : {{ song.movie }}</h3>
+
+        <p>❤️ Likes : {{ song.like }}</p>
+
+        <audio controls autoplay>
+            <source src="{{ song.audio.url }}" type="audio/mpeg">
+            Your browser does not support audio.
+        </audio>
+
+        <br>
+
+        <a href="{% url 'song' %}" class="back">
+            ⬅ Back To Playlist
+        </a>
+
+    </div>
+
+</body>
+</html>

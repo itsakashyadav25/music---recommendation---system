@@ -1,0 +1,157 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sign Up</title>
+
+<style>
+    *{
+        margin:0;
+        padding:0;
+        box-sizing:border-box;
+        font-family: Arial, sans-serif;
+    }
+
+    body{
+        height:100vh;
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        background:linear-gradient(135deg,#667eea,#764ba2);
+    }
+
+    .container{
+        width:380px;
+        background:white;
+        padding:40px;
+        border-radius:20px;
+        box-shadow:0 10px 25px rgba(0,0,0,0.2);
+        text-align:center;
+    }
+
+    .container h1{
+        color:#333;
+        margin-bottom:30px;
+    }
+
+    .input-box{
+        margin-bottom:20px;
+    }
+
+    .input-box input{
+        width:100%;
+        padding:12px;
+        border:2px solid #ddd;
+        border-radius:10px;
+        outline:none;
+        font-size:16px;
+        transition:0.3s;
+    }
+
+    .input-box input:focus{
+        border-color:#667eea;
+        box-shadow:0 0 10px rgba(102,126,234,0.3);
+    }
+
+    .btn-box{
+        display:flex;
+        gap:15px;
+        margin-top:25px;
+    }
+
+    button{
+        flex:1;
+        padding:12px;
+        border:none;
+        border-radius:10px;
+        font-size:16px;
+        cursor:pointer;
+        color:white;
+        transition:0.3s;
+    }
+
+    .signup-btn{
+        background:#667eea;
+    }
+
+    .signup-btn:hover{
+        background:#5563d8;
+        transform:translateY(-2px);
+    }
+
+    .reset-btn{
+        background:#ff4d4d;
+    }
+
+    .reset-btn:hover{
+        background:#e63939;
+        transform:translateY(-2px);
+    }
+
+    .login-link{
+        margin-top:25px;
+    }
+
+    .login-link a{
+        text-decoration:none;
+        color:#667eea;
+        font-weight:bold;
+    }
+
+    .login-link a:hover{
+        text-decoration:underline;
+    }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+    <h1>Create Account</h1>
+
+    <form method="POST" action="">
+        {% csrf_token %}
+
+        <div class="input-box">
+            <input type="email"
+                   name="user"
+                   placeholder="📧 Enter your Email"
+                   required>
+        </div>
+
+        <div class="input-box">
+            <input type="password"
+                   name="password"
+                   placeholder="🔒 Create Password"
+                   required>
+        </div>
+
+        <div class="input-box">
+            <input type="password"
+                   name="password2"
+                   placeholder="🔐 Confirm Password"
+                   required>
+        </div>
+
+        <div class="btn-box">
+            <button type="submit" class="signup-btn">
+                SIGN UP
+            </button>
+
+            <button type="reset" class="reset-btn">
+                RESET
+            </button>
+        </div>
+    </form>
+
+    <div class="login-link">
+        Already have an account?
+        <a href="/">Login</a>
+    </div>
+
+</div>
+
+</body>
+</html>
